@@ -1,4 +1,10 @@
 # hybris
 Tool to spawn processes as SYSTEM by stealing tokens :)
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/TIL?src=hash&amp;ref_src=twsrc%5Etfw">#TIL</a>: do you want to log in as another already logged in user on a workstation without deploying <a href="https://twitter.com/hashtag/Mimikatz?src=hash&amp;ref_src=twsrc%5Etfw">#Mimikatz</a> and ringing too much bells? Just run taskmgr.exe as SYSTEM and right-click-connect on the user you are targeting :D <a href="https://t.co/C5B2xvfFth">pic.twitter.com/C5B2xvfFth</a></p>&mdash; ℓαѕт (@last0x00) <a href="https://twitter.com/last0x00/status/1361800051639668738?ref_src=twsrc%5Etfw">February 16, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+```
+Usage:
+.\hybris.exe processImage.exe
+
+Example:
+.\hybris.exe cmd.exe
+```
