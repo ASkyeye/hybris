@@ -2,6 +2,13 @@
 
 int wmain(int argc, wchar_t** argv)
 {
+	if (argc != 2)
+	{
+		std::wcout << L"Usage: " << argv[0] << L" processImage.exe" << std::endl
+			<< L"Example: " << argv[0] << L" taskmgr.exe" << std::endl;
+		return 1;
+	}
+
 	// open a handle to winlogon.exe (assign the HANDLE to a RAII type - defined in raii.h - so that CloseHandle is always called)
 	RAII::Handle winlogonHandle(::OpenProcess(PROCESS_ALL_ACCESS, false, FindPid(L"winlogon.exe")));
 	if (winlogonHandle.GetHandle() == NULL)
