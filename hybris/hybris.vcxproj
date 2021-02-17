@@ -143,9 +143,7 @@
     <ClCompile Include="FindPid.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RAII_Hmodule.cpp" />
-    <ClCompile Include="SetPrivilege.cpp" />
     <ClCompile Include="RAII_Handle.cpp" />
-    <ClCompile Include="UnhookDll.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />

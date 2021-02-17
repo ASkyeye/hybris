@@ -1,3 +1,5 @@
+// Header containing includes and function definitions
+
 #pragma once
 #include <iostream>
 #include <Windows.h>

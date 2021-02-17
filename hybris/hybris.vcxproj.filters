@@ -24,16 +24,10 @@
     <ClCompile Include="FindPid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SetPrivilege.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RAII_Handle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RAII_Hmodule.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UnhookDll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

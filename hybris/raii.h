@@ -1,3 +1,5 @@
+// Header containing the RAII types (to safely manage WINAPI HANDLEs and HMODULEs)
+
 #pragma once
 #include "common.h"
 

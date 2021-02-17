@@ -1,3 +1,5 @@
+// Error code parsing and printing function
+
 #include "common.h"
 
 void Error(_In_ DWORD lastError)

