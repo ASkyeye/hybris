@@ -9,4 +9,4 @@ Example:
 .\hybris.exe cmd.exe
 ```
 
-![cmd system GIF](https://blog.notso.pro/img/cmdsystem.gif)
+![cmd system GIF](hybris/cmdsystem.gif)
