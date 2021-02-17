@@ -8,3 +8,5 @@ Usage:
 Example:
 .\hybris.exe cmd.exe
 ```
+
+![cmd system GIF](https://blog.notso.pro/img/cmdsystem.gif)
